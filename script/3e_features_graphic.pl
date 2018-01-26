@@ -8,7 +8,7 @@ use Bio::SeqIO;
 my ($in, $seq, $feature, $wholeSeq, $panel);
 my (@cds);
 
-$in = Bio::SeqIO->new(-file => "f1.gb", -format => 'genbank');
+$in = Bio::SeqIO->new(-file => "all_from_gb.gb", -format => 'genbank');
 $seq = $in->next_seq();
 for $feature ($seq->get_SeqFeatures) {
     next unless ($feature->primary_tag eq "CDS");
@@ -31,6 +31,6 @@ $panel->add_track($wholeSeq, -glyph => 'generic', -bgcolor => 'blue', -label => 
 $panel->add_track(\@cds, -glyph => 'transcript2', -bgcolor => 'orange', -fgcolor => 'black', -font2color => 'red', -key => 'CDS', -bump => +1, -height => 12);
 
 # Enregistrer le graphique en format png
-open(FHO, ">f1.png") or die("f1.png");
+open(FHO, ">f1.png") or die("all_from_gb.png");
 print FHO $panel->png;
 close(FHO);
