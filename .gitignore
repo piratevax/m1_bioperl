@@ -1,3 +1,7 @@
 *.fasta
 *.fa
 *.gb
+*.swp
+*.gff
+*.png
+*.txt
