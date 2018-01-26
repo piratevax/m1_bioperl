@@ -18,7 +18,9 @@ while (my $seq = $in->next_seq()) {
 	}
     }
 }
-foreach my $feature (keys(%count)) {
+$in->close();
+
+foreach my $feature (sort(keys(%count))) {
     print $count{$feature}." ".$feature;
     if ($feature eq "gene") {
 	print " : ";

@@ -17,3 +17,5 @@ while (my $seq = $in->next_seq()) {
 	}
     }
 }
+$in->close();
+$out->close();
